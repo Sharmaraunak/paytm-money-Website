@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+.section{
+    height: 57.8rem;
+    background-image: linear-gradient(62deg, #ffffff 35%, #f2f9fe 96%);
+    position: relative;
+    overflow: hidden;
+}
+.textPart{
+    font-size: 3.6rem;
+    font-weight: 900;
+    position: relative;
+    width: 100%;
+    max-width: 114rem;
+    display: flex;
+    flex-direction: column;
+    height: 23.8rem;
+    z-index: 1;
+    margin: 21.3rem auto 0 auto;
+    color: #000;
+}
+.textPartChild{
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #727682;
+    
+    
+}
+
+.btnPart{
+    width: 14rem;
+    min-height: 2.4rem;
+    margin-top: 3.2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    padding: 1.4rem 2.6rem;
+    line-height: 1.13;
+    background-color:#004393;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+.image{
+    position: absolute;
+    z-index: 0;
+    float: right;
+    background-image: url('../static/images/global-banner-illustration.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+    width: 58%;
+    height: 65%;
+    right: 1.5rem;
+    bottom: 0;
+}

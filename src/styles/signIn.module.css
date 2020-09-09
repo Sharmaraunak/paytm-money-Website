@@ -1,0 +1,152 @@
+html{
+    box-sizing: border-box;
+    font-size: 10px;
+    scroll-behavior: smooth;
+  }
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Open-sans,Lato,Helvetica,Arial,sans-serif;
+}
+.block{
+    background-color: #f5f7f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.insideBlock{
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outerCard{
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.08);
+    display: flex;
+    width: 96.4rem;
+    justify-content: space-between;
+    border-radius: .6rem;
+}
+.signInside{
+    background: #fff;
+    padding: 5.6rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    border-radius: .6rem;
+    max-width: 33rem;
+    position: relative;
+}
+.signInside .logo{
+    margin-bottom: 3.8rem;
+}
+.signIn{
+    width: 100%;
+}
+.signInInside{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color:#494949;
+    margin-bottom: 1.4rem;
+    display: flex;  
+}
+.form{
+    margin: 2rem;
+}
+.passwordField{
+    position: relative;
+    margin-top: 3.5rem;
+}
+.eye{
+    background: url(../static/images/view-password.svg) 50% no-repeat;
+    cursor: pointer;
+    height: 1.6rem;
+    position: absolute;
+    right: 1rem;
+    top: 1.6rem;
+    width: 2.2rem;
+}
+.text{
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(0, 188, 241);
+    margin-top: .5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+.Button{
+    background-color: rgb(49, 90, 156);
+    margin-top: 1.8rem;
+    max-width: 27.4rem;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 3px;
+    height: 4rem;
+    width: 37rem;
+    align-items: center;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    outline: none;
+    padding: 0 1rem;
+    position: relative;
+}
+.newText{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(114, 118, 130);;
+    text-align: center;
+    margin-top: .8rem;
+}
+.newText > span{
+    color: rgb(0, 188, 241);
+    margin-left: .5rem;
+    cursor: pointer;
+}
+.images{
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+}
+.outText{
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgb(114, 118, 130);
+    margin-top: 1.5rem;
+}
+.banner{
+    background-color:rgb(246, 251, 255);;
+    min-width: 58rem;
+    height: 54.7rem;
+    border-radius: .6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;;
+}
+.bannerText{
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #727682;
+    padding: 3.9rem;
+    margin-top: 1.9rem;
+}
+.banner > img{
+    margin-top: 1.5rem;
+   
+}
+.topText{
+    height:5.2rem;
+}
+.bottomText{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #494949;
+   
+}
