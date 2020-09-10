@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import  App  from './App'
 import SignIn from './components/signIn'
+import {Tables} from './components/tables'
 
 const Routes = () => {
     return(
@@ -12,6 +13,7 @@ const Routes = () => {
                 <Redirect to="/Home" />
                 </Route>
                 <Route exact path="/signIn" component={SignIn} />
+                <Route exact path="/tables" component={Tables} />
             </Switch>
         </div>
     )

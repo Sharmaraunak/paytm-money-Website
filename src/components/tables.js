@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class componentName extends Component {
-  render() {
-    return (
-      <>
-        
-      </>
+export const Tables = () => {
+
+
+    return(
+        <div className="hello">
+            <h1>hI</h1>
+        </div>
     )
-  }
+  
 }

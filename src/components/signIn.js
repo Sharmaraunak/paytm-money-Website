@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom'
 import style from "../styles/signIn.module.css";
 import {
     fade,
@@ -8,46 +9,84 @@ import {
     createMuiTheme,
     
   } from '@material-ui/core/styles';
-  import Button from '@material-ui/core/Button'
-  import InputBase from '@material-ui/core/InputBase';
-  import InputLabel from '@material-ui/core/InputLabel';
-  import TextField from '@material-ui/core/TextField';
-  import FormControl from '@material-ui/core/FormControl';
-  import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button'
+import InputBase from '@material-ui/core/InputBase';
+import InputLabel from '@material-ui/core/InputLabel';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import { grey } from '@material-ui/core/colors';
+import clsx from 'clsx';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import FilledInput from '@material-ui/core/FilledInput';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import  Visibility  from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { render } from "@testing-library/react";
 
-  const CssTextField = withStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        '& label.Mui-focused': {
-        color: '#616161',
-        },
-        
-        '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-        },
-        '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: '#616161',
-        },
-        
-        '&.Mui-focused fieldset': {
-            borderColor: '#e1f5fe',
-        },
-        
-        },
+      display: 'flex',
+      flexWrap: 'wrap',
     },
-    })(TextField);
-
-    const theme = createMuiTheme({
-        palette: {
-          primary: grey,
-        },
-      })
+    margin: {
+      margin: theme.spacing(1),
+    },
+    withoutLabel: {
+      marginTop: theme.spacing(3),
+    },
+    textField: {
+      width: '25ch',
+    },
+  }));
+    
 
 const SignIn = () => {
 
     const classes = makeStyles();
+    const [values, setValues] = React.useState({
+        tel: '',
+        password: '',
+        showPassword: false,
+        loggedIn: false,
+        });
+    
+    const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+        
+    };
+
+    const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+    };
+
+    const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+    };
+
+    const history = useHistory();
+
+    const submitForm = (event) => {
+        event.preventDefault();
+        const email = values.tel;
+        const password = values.password;
+        //login logic
+
+        if( email === "9629906806" && password == "123"){
+              values.loggedIn = true ;  
+              history.push("/tables")     
+        }        
+        else{
+            alert("Either email or Password is incorrect");
+        }
+
+    }
+    
 
   return (
+  
     <div className={style.block}>
       <div className={style.insideBlock}>
         <div>
@@ -60,29 +99,64 @@ const SignIn = () => {
                                 Sign In
                             </div>
                             <div>
-                               <form className={classes.root} Validate>
-                               <CssTextField
-                                    className={classes.margin}
-                                    label="Registered Mobile or Email on Paytm"
-                                    variant="outlined"
-                                    id="custom-css-outlined-input"
-                                    fullWidth="true"
-                                />
+                               <form 
+                               className={classes.root} 
+                               validate  
+                                onSubmit={submitForm}
+                              >
+                               <FormControl 
+                                       className={clsx(classes.margin, classes.textField)} 
+                                       variant="outlined"
+                                       fullWidth="true">
+                                            <InputLabel htmlFor="custom-css-standard-input">Registered mobile number</InputLabel>
+                                            <OutlinedInput
+                                               
+                                                id="custom-css-standard-input"
+                                                type="tel"
+                                                value={values.tel}
+                                                onChange={handleChange('tel')}
+                                                labelWidth={70}
+                                                required="true"
+                                            />
+                                        </FormControl>
                                 <div className={style.passwordField}>
-                                    <CssTextField
-                                        className={classes.margin}
-                                        label="Password"
-                                        variant="outlined"
-                                        id="custom-css-outlined-input"
-                                        fullWidth="true"/>
-                                        <i className={style.eye}></i>
+                                    
+                                       <FormControl 
+                                       className={clsx(classes.margin, classes.textField)} 
+                                       variant="outlined"
+                                       fullWidth="true">
+                                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                            <OutlinedInput
+                                                id="outlined-adornment-password"
+                                                type={values.showPassword ? 'text' : 'password'}
+                                                value={values.password}
+                                                required="true"
+                                                onChange={handleChange('password')}
+                                                endAdornment={
+                                                <InputAdornment position="end">
+                                                    <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}
+                                                    edge="end"
+                                                    
+                                                    >
+                                                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                                    </IconButton>
+                                                </InputAdornment>
+                                                }
+                                                labelWidth={70}
+                                            />
+                                        </FormControl>
 
                                 </div>
                                 <div className={style.text}>
                                     <span>Forgot Password?</span>
                                 </div>
                                 <span>
-                                        <button className={style.Button}>SIGN IN</button>
+                                    <button type="submit"
+                                        className={style.Button}
+                                        > SIGN IN</button>      
                                 </span>
                                 <div className={style.newText}>
                                     Don't have an account?
@@ -98,11 +172,11 @@ const SignIn = () => {
                     </div>
               </div>
               <div className={style.banner}>
-              <div class={style.bannerText}>
-                    <div class={style.topText}>
+              <div className={style.bannerText}>
+                    <div className={style.topText}>
                         Hello India
                     </div>
-                    <div class={style.bottomText}>
+                    <div className={style.bottomText}>
                         Investing is simple
                     <br/>
                     Transparent & for Everyone.
