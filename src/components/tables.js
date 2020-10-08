@@ -11,6 +11,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
+import SimpleTable from './box'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -192,14 +193,23 @@ export const Tables = () => {
                         </div>
 
                     </div>
-
-
                 </div>
-                <div className="right">
-                      <span>Search results
-                        <span id="inside">3318 Stocks</span>
-                      </span>
-                </div>
+
+                <div className="table">
+                  <span>
+                    Search results
+                    <span id="inside">
+                        3318 Stocks
+                    </span>
+                  </span>
+
+                  <div className="box">
+                    <SimpleTable/>
+                  </div>
+
+                </div>         
+
+                
             </div>
         </div>
     )
